@@ -3,7 +3,13 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
-  await dotenv.load(fileName: ".env");
+  print("APP START");
+  try {
+    await dotenv.load(fileName: "setting.env");
+    print("ENV LOADED");
+  } catch (e) {
+    print("Failed to load .env file: $e");
+  }
   runApp(MyApp());
 }
 
